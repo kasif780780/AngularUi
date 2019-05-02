@@ -31,5 +31,33 @@
         </div>
       </div>
     </div>
+
+    <div class="col-md-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="About {{user?.knownAs}}">
+            <h4>Description</h4>
+            <p>{{user?.introduction}}</p>
+            <p>{{user?.lookingFor}}</p>
+          </tab>
+
+          <tab heading="Interests">
+              <h4>Interests</h4>
+              <p>{{user?.interests}}</p>
+              
+            </tab>
+
+           
+
+              <tab heading="Photo {{user?.knownAs}}">
+                 <p>Photo WIll GO hERE</p>
+                </tab>
+                <tab heading="Message">
+                    <p>Message will go here</p>
+                    
+                  </tab>
+        </tabset>
+      </div>
+    </div>
   </div>
 </div>
