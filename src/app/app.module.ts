@@ -18,10 +18,11 @@ import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
 import { ListsComponent } from './lists/lists.component';
-import { MemberListsComponent } from './member-lists/member-lists.component';
+import { MemberListsComponent } from './members/member-lists/member-lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
+import { MemberCardsComponent } from './members/member-cards/member-cards.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { UserService } from './_services/user.service';
       RegisterComponent,
       ListsComponent,
       MemberListsComponent,
-      MessagesComponent
+      MessagesComponent,
+      MemberCardsComponent
    ],
    imports: [
       BrowserModule,
