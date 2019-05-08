@@ -25,15 +25,30 @@ export class PhotoEditoreComponent implements OnInit {
     this.hasBaseDropZoneOver = e;
   }
 
-  initializeUploader() {
+  initializeUploader() {  
     this.uploader = new FileUploader({
       url: this.baseUrl + 'users/' + this.authService.decodedToken.nameid + '/photos',
-      authToken: 'Bearer' + localStorage.getItem('token'),
-      isHTML5: true;,
+      authToken: 'Bearer ' + localStorage.getItem('token'),
+      isHTML5: true,
       allowedFileType: ['image'],
       removeAfterUpload: true,
       autoUpload: false,
       maxFileSize: 10 * 1024 * 1024
     });
+
+    this.uploader.onAfterAddingFile = (file) => {file.withCredentials = false; };
+     this.uploader.onSuccessItem = (item, response, status, Headers) => {
+       if (response) {
+         const res: Photo = JSON.parse(response);
+         const photo = {
+           id: res.id,
+           url: res.url,
+           dataAdded: res.dateAdded,
+           description: res.description,
+           isMain: res.isMain
+        };
+        this.photos.push(photo);
+       }
+     };
   }
 }
